@@ -1,0 +1,132 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.logo-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    transition: transform 0.5s ease, width 0.5s ease;
+}
+
+#logo {
+    width: 80px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.calendar-container {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.calendar-container.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.calendar-header {
+    margin: 30px ;
+}
+
+.calendar-header h1 {
+    font-size: 2em;
+    margin-top: 15px;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.month {
+    background-color: #333333a6;
+    border-radius: 10px;
+    padding: 10px;
+    min-width: 150px;
+    max-width: 100%; 
+}
+
+.month-name {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.weekdays, .days {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.weekdays div, .days div {
+    width: 14.28%;
+    padding: 5px 0;
+    text-align: center;
+}
+
+.weekdays {
+    border-bottom: 1px solid #444;
+    margin-bottom: 5px;
+}
+
+.days .day {
+    padding: 10px 0;
+    border-radius: 5px;
+    margin-bottom: 2px;
+    cursor: pointer;
+}
+
+.days .day:hover {
+    background-color: #555;
+}
+
+.calendar-container.show .logo-container {
+    transform: translate(-100%, -100%) scale(0.5); /* Move and scale logo to top-left */
+}
