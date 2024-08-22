@@ -130,3 +130,23 @@ body {
 .calendar-container.show .logo-container {
     transform: translate(-100%, -100%) scale(0.5); /* Move and scale logo to top-left */
 }
+
+@media (max-width:428px) {
+    #logo {
+        width: 40px;
+        margin-left: 8px;
+    }
+
+    .calendar-header h1 {
+        font-size: 1.2em;
+    }
+
+    .calendar {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .calendar-header {
+        margin: 18px;
+    }
+}
